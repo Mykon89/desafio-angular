@@ -1,0 +1,13 @@
+.mdc-list-item {
+  display: inline;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-toolbar-row {
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
