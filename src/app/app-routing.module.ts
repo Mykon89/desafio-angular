@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FilmesComponent } from './components/filmes/filmes.component';
-import { HomeComponent } from './components/home/home.component';
-import { NaveComponent } from './components/nave/nave.component';
+import { FilmsComponent } from './components/pages/films/films.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { StarshipsComponent } from './components/pages/starships/starships.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'filmes', component: FilmesComponent },
-  { path: 'nave', component: NaveComponent },
+  { path: 'filmes', component: FilmsComponent },
+  { path: 'naves', component: StarshipsComponent },
 ];
 
 @NgModule({

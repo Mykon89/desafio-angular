@@ -1,0 +1,23 @@
+<div class="cabecalho">
+  <h1 class="title">FILMES</h1>
+</div>
+<div class="page-content">
+  <div class="table-result">
+    <table id="customers">
+      <tr>
+        <th>Titulo</th>
+        <th>Episódio</th>
+        <th>Criado em</th>
+        <th>Direção</th>
+        <th>Produção</th>
+      </tr>
+      <tr *ngFor="let data of films">
+        <td>{{ data.title }}</td>
+        <td>{{ data.episode_id }}</td>
+        <td>{{ data.created }}</td>
+        <td>{{ data.director }}</td>
+        <td>{{ data.producer }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

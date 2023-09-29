@@ -1,13 +1,27 @@
-.mdc-list-item {
-  display: inline;
-  align-items: center;
-  justify-content: center;
+.navbar {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  background-color: blueviolet;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
 }
 
-.mat-toolbar-row {
-  justify-content: center;
+ul {
+  display: flex;
+  gap: 36px;
 }
 
-a {
+li {
   text-decoration: none;
+  list-style: none;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+
+li:hover {
+  transform: scale(1.1);
+  transition: ease 0.3s;
+  color: aqua;
 }
