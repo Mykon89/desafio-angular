@@ -22,4 +22,18 @@ export class ApiService {
         return Promise.reject(error);
       });
   }
+
+  // Método para fazer uma pesquisa pelo nome do filme
+  getFilmsName(): Promise<any> {
+    const endPoint = `${this.apiUrl}/films/?search=`;
+    return this.http
+      .get(endPoint)
+      .toPromise()
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        return Promise.reject(error);
+      });
+  }
 }
