@@ -1,5 +1,11 @@
 <div class="cabecalho">
   <h1 class="title">FILMES</h1>
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="searchFilms()"
+    placeholder="Pesquisar filmes..."
+  />
 </div>
 <div class="page-content">
   <div class="table-result">

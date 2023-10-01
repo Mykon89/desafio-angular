@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class FilmsComponent {
   films: any[] = [];
+  searchTerm: string = ''; // Termo de pesquisa inserido pelo usuário
 
   constructor(private apiService: ApiService) {}
 
@@ -15,6 +16,7 @@ export class FilmsComponent {
     this.getFilms();
   }
 
+  // Método para obter a lista inicial de filmes Star Wars
   getFilms() {
     this.apiService
       .getFilms()
@@ -24,5 +26,23 @@ export class FilmsComponent {
       .catch((error: any) => {
         console.error('Erro ao buscar filmes:', error);
       });
+  }
+
+  // Método para pesquisar filmes por nome
+  searchFilms() {
+    if (this.searchTerm.trim() === '') {
+      // Se o campo de pesquisa estiver vazio, mostrar todos os filmes
+      this.getFilms();
+    } else {
+      // Se houver um termo de pesquisa, chamar o método de pesquisa no ApiService
+      this.apiService.getFilmsByName(this.searchTerm).subscribe(
+        (response) => {
+          this.films = response.results;
+        },
+        (error) => {
+          console.error('Erro ao buscar filmes:', error);
+        }
+      );
+    }
   }
 }

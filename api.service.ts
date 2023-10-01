@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -23,9 +24,15 @@ export class ApiService {
       });
   }
 
-  // Método para fazer uma pesquisa pelo nome do filme
-  getFilmsName(): Promise<any> {
-    const endPoint = `${this.apiUrl}/films/?search=`;
+  // Método para pesquisar filmes por nome
+  getFilmsByName(name: string): Observable<any> {
+    const endPoint = `${this.apiUrl}films/?search=${name}`;
+    return this.http.get(endPoint);
+  }
+
+  // Método para fazer uma requisição get das Naves de Star Wars
+  getStarships(): Promise<any> {
+    const endPoint = `${this.apiUrl}/starships`;
     return this.http
       .get(endPoint)
       .toPromise()
