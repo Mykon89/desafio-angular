@@ -8,22 +8,35 @@ import { ApiService } from './../../../../../api.service';
 })
 export class StarshipsComponent {
   starships: any[] = [];
+  currentPage = 1;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.getStarships();
+    this.getStarships(this.currentPage);
   }
 
   // Método para obter a lista inicial de naves Star Wars
-  getStarships() {
+  getStarships(page: number) {
     this.apiService
-      .getStarships()
+      .getStarships(page)
       .then((response) => {
         this.starships = response.results;
       })
       .catch((error: any) => {
         console.error('Erro ao buscar filmes:', error);
       });
+  }
+
+  nextPage(): void {
+    this.currentPage++;
+    this.getStarships(this.currentPage);
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.getStarships(this.currentPage);
+    }
   }
 }

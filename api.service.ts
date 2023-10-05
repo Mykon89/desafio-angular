@@ -30,9 +30,9 @@ export class ApiService {
     return this.http.get(endPoint);
   }
 
-  // Método para fazer uma requisição get das Naves de Star Wars
-  getStarships(): Promise<any> {
-    const endPoint = `${this.apiUrl}/starships`;
+  // Método para fazer uma requisição get das Naves de Star Wars e paginação
+  getStarships(page: number): Promise<any> {
+    const endPoint = `${this.apiUrl}/starships/?page=${page}`;
     return this.http
       .get(endPoint)
       .toPromise()

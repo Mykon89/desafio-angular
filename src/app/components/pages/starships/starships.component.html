@@ -21,4 +21,10 @@
       </table>
     </div>
   </div>
+  <div class="paginacao">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Anterior
+    </button>
+    <button (click)="nextPage()">Próxima</button>
+  </div>
 </div>
