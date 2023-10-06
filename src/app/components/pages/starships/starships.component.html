@@ -22,9 +22,12 @@
     </div>
   </div>
   <div class="paginacao">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">
-      Anterior
+    <button (click)="prevPage()" [disabled]="currentPage === 1"><</button>
+    {{ currentPage }}
+    <button (click)="nextPage()" [disabled]="currentPage === countPages">
+      >
     </button>
-    <button (click)="nextPage()">Próxima</button>
+    {{ countPages }}
+    {{ count }}
   </div>
 </div>

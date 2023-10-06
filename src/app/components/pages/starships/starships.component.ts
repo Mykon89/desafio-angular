@@ -9,6 +9,9 @@ import { ApiService } from './../../../../../api.service';
 export class StarshipsComponent {
   starships: any[] = [];
   currentPage = 1;
+  count = 0;
+  totalPages = 0;
+  countPages = 0;
 
   constructor(private apiService: ApiService) {}
 
@@ -22,6 +25,9 @@ export class StarshipsComponent {
       .getStarships(page)
       .then((response) => {
         this.starships = response.results;
+        this.count = response.count;
+        this.totalPages = this.count / 10;
+        this.countPages = Math.ceil(this.totalPages);
       })
       .catch((error: any) => {
         console.error('Erro ao buscar filmes:', error);
