@@ -49,6 +49,7 @@ export class StarshipsComponent {
     }
   }
 
+  // Método para mais detalhes das naves.
   getDetails(id: string) {
     this.apiService
       .getDetails(id)
@@ -61,6 +62,7 @@ export class StarshipsComponent {
       });
   }
 
+  // Método para abrir o dialog do Angular Material
   openDetails(): void {
     const dialogRef = this.dialog.open(DetailsComponent, {
       data: this.detailStarship,

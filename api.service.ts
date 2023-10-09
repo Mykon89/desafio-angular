@@ -45,9 +45,9 @@ export class ApiService {
   }
 
   getDetails(id: any): Promise<any> {
-    const id_starthip = `${id}`;
+    const idStarship = `${id}`;
     return this.http
-      .get(id_starthip)
+      .get(idStarship)
       .toPromise()
       .then((response) => {
         return response;
