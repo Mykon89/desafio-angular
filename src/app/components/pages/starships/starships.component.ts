@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsComponent } from '../../details/details.component';
 import { ApiService } from './../../../../../api.service';
 
 @Component({
@@ -8,12 +10,13 @@ import { ApiService } from './../../../../../api.service';
 })
 export class StarshipsComponent {
   starships: any[] = [];
+  detailStarship: any[] = [];
   currentPage = 1;
   count = 0;
   totalPages = 0;
   countPages = 0;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getStarships(this.currentPage);
@@ -44,5 +47,26 @@ export class StarshipsComponent {
       this.currentPage--;
       this.getStarships(this.currentPage);
     }
+  }
+
+  getDetails(id: string) {
+    this.apiService
+      .getDetails(id)
+      .then((response) => {
+        this.detailStarship = response;
+        this.openDetails();
+      })
+      .catch((error: any) => {
+        console.error('Erro ao buscar naves:', error);
+      });
+  }
+
+  openDetails(): void {
+    const dialogRef = this.dialog.open(DetailsComponent, {
+      data: this.detailStarship,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
   }
 }

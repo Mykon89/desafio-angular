@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { FilmsComponent } from './components/pages/films/films.component';
 import { StarshipsComponent } from './components/pages/starships/starships.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FilmsComponent,
     StarshipsComponent,
     NavbarComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatListModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

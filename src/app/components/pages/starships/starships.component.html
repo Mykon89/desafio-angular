@@ -10,6 +10,7 @@
           <th>Criado em</th>
           <th>Capacidade</th>
           <th>Classe</th>
+          <th>Detalhes</th>
         </tr>
         <tr *ngFor="let data of starships">
           <td>{{ data.name }}</td>
@@ -17,6 +18,7 @@
           <td>{{ data.created }}</td>
           <td>{{ data.cargo_capacity }}</td>
           <td>{{ data.starship_class }}</td>
+          <td><button (click)="getDetails(data.url)">Detalhes</button></td>
         </tr>
       </table>
     </div>
